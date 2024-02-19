@@ -23,6 +23,11 @@ namespace WebApiAutores
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.Run(async contexto =>
+            {
+                await contexto.Response.WriteAsync("Estoy interceptando la tuberia de middleware");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseSwagger();
